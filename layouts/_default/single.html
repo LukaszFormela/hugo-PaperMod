@@ -16,7 +16,9 @@
     <div class="post-meta">
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
-      {{- partial "edit_post.html" . -}}
+      {{- if false }}
+        {{- partial "edit_post.html" . -}}
+      {{- end }}
       {{- partial "post_canonical.html" . -}}
     </div>
     {{- end }}

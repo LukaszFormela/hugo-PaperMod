@@ -119,6 +119,50 @@
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end -}}
 
+
+{{- if eq .Page.Title "Contact me" }}
+{{- /* Google reCaptcha v3 */}}
+<script src="https://www.google.com/recaptcha/api.js?render=6Lf8k8QUAAAAAAaGquU2Po-4ftiYGmZ4u9dGn-JY"></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6Lf8k8QUAAAAAAaGquU2Po-4ftiYGmZ4u9dGn-JY', {action: 'submit'}).then(function (token) {
+            console.info("got token: " + token);
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+</script>
+{{- /* Formspree style */}}
+<style>
+    .form {
+        padding: 15px 30px;
+        background: #FAFAFA;
+    }
+
+    .form label {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .form input,
+    .form textarea {
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .form button[type="submit"] {
+        padding: 10px 30px;
+        background: #333333;
+        border-radius: 5px;
+        margin-top: 15px;
+        color: #FFFFFF;
+    }
+</style>
+{{ end -}}
+
 <noscript>
     <style>
         #theme-toggle,
